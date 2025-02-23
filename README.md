@@ -11,6 +11,9 @@ DesktopSwitcher is an application that allows users to switch between different 
 - Use the "Desktops" menu to switch between different desktop profiles.
 - Use the "Config" menu to reload or edit the configuration file.
 
+> [!WARNING]
+> Every time you switch desktops `explorer.exe` will restart. This will close all open folders.
+
 ## Configuration ⚙️
 
 The application uses a [TOML](https://toml.io) file to store configurations. The file is located in the application's base directory. You can edit this file to add or modify desktop folders.
