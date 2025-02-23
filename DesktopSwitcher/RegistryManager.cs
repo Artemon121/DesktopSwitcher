@@ -1,12 +1,9 @@
-﻿using Avalonia.Controls;
-using DesktopSwitcher.Models;
+﻿using DesktopSwitcher.Models;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Security.AccessControl;
-using System.Xml.Linq;
 
 namespace DesktopSwitcher
 {
@@ -118,6 +115,28 @@ namespace DesktopSwitcher
                 Value = key.GetValue(valueName),
                 ValueKind = key.GetValueKind(valueName)
             }).ToList();
+        }
+
+        /// <summary>
+        /// Delete a registry key value.
+        /// </summary>
+        /// <param name="keyValue">Registry key value to delete.</param>
+        public static void DeleteKeyValue(string keyPath, string valueName)
+        {
+            var baseName = keyPath.Split(@"\").First();
+            var subKeyName = string.Join(@"\", keyPath.Split(@"\").Skip(1));
+
+            var baseKey = registryKeyFromBaseName(baseName);
+
+            using RegistryKey key = baseKey.OpenSubKey(
+                subKeyName,
+                RegistryKeyPermissionCheck.ReadWriteSubTree,
+                RegistryRights.FullControl
+            )!;
+            
+            if (key == null) return;
+
+            key.DeleteValue(valueName);
         }
     }
 }
