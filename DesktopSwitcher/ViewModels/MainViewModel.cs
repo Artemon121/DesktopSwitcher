@@ -138,8 +138,6 @@ public class MainViewModel : ViewModelBase
 
     public void SwitchDesktop(DesktopFolder folder)
     {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) throw new Exception("This program is available only on Windows.");
-
         // Refresh explorer so it stores icon layout data to the registry
         ExplorerUtils.Refresh();
         Thread.Sleep(100);

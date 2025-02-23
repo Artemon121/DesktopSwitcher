@@ -17,8 +17,6 @@ public static class AdminElevator
 
     private static bool IsRunningAsAdmin()
     {
-        if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) throw new Exception("This program is available only on Windows.");
-
         using var identity = WindowsIdentity.GetCurrent();
         var principal = new WindowsPrincipal(identity);
         return principal.IsInRole(WindowsBuiltInRole.Administrator);

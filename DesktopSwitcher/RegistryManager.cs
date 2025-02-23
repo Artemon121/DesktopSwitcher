@@ -14,7 +14,6 @@ namespace DesktopSwitcher
     {
         private static RegistryKey registryKeyFromBaseName(string baseName)
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) throw new Exception("This program is available only on Windows.");
             return baseName switch
             {
                 "HKEY_CLASSES_ROOT" => Registry.ClassesRoot,
@@ -30,12 +29,9 @@ namespace DesktopSwitcher
         /// Set a registry key value.
         /// </summary>
         /// <param name="kv">The registry key value to set.</param>
-        /// <exception cref="Exception">Thrown when the OS Platform is not Windows.</exception>
         /// <exception cref="ArgumentException">Thrown when the registry key does not exist.</exception>
         public static void SetKeyValue(RegistryKeyValue kv)
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) throw new Exception("This program is available only on Windows.");
-
             var baseName = kv.KeyPath.Split(@"\").First();
             var subKeyName = string.Join(@"\", kv.KeyPath.Split(@"\").Skip(1));
 
@@ -71,11 +67,8 @@ namespace DesktopSwitcher
         /// <param name="keyPath">Path to the registry key.</param>
         /// <param name="valueName">Name of the value at the registry key.</param>
         /// <returns><see cref="RegistryKeyValue"/> or null if the key does not exist.</returns>
-        /// <exception cref="Exception">Thrown when the OS Platform is not Windows.</exception>
         public static RegistryKeyValue? GetKeyValue(string keyPath, string valueName)
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) throw new Exception("This program is available only on Windows.");
-
             var baseName = keyPath.Split(@"\").First();
             var subKeyName = string.Join(@"\", keyPath.Split(@"\").Skip(1));
 
@@ -105,8 +98,6 @@ namespace DesktopSwitcher
         /// <returns>A list of <see cref="RegistryKeyValue"/> or null if the key does not exist.</returns>
         public static List<RegistryKeyValue>? GetAllKeyValues(string keyPath)
         {
-            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) throw new Exception("This program is available only on Windows.");
-
             var baseName = keyPath.Split(@"\").First();
             var subKeyName = string.Join(@"\", keyPath.Split(@"\").Skip(1));
 
