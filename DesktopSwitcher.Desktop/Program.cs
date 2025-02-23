@@ -12,10 +12,9 @@ class Program
     // yet and stuff might break.
     [STAThread]
     public static void Main(string[] args) {
-#if !DEBUG
         if (!AdminElevator.EnsureAdminPrivileges())
             return;
-#endif
+
         BuildAvaloniaApp()
             .StartWithClassicDesktopLifetime(args);
     }
