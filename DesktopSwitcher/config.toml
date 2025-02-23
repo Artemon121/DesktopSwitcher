@@ -1,4 +1,5 @@
-﻿run_at_startup = true
+﻿# Start with Windows
+run_at_startup = true
 
 # Don't remove default desktop
 [[desktop_folder]]
@@ -8,8 +9,8 @@ path = '%USERPROFILE%\Desktop'
 # Examples:
 
 # [[desktop_folder]]
-# name = "My Desktop 1"
-# path = '%USERPROFILE%\Desktops\MyDesktop1'
+# name = "Work"
+# path = 'C:\Users\YourUsername\Desktop\Work'
 
 # [[desktop_folder]]
 # name = "Any folder can be a desktop!"
