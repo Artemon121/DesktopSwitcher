@@ -9,6 +9,8 @@ namespace DesktopSwitcher.Models
         [IgnoreDataMember]
         public string Path { get; set; } = string.Empty;
 
+        public bool RunAtStartup { get; set; } = false;
+
         [DataMember(Name = "desktop_folder")]
         public List<DesktopFolder> DesktopFolders { get; init; } = [];
 

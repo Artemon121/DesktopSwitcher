@@ -50,6 +50,23 @@ public class MainViewModel : ViewModelBase
         }
     }
 
+    private void SetRunAtStartup(bool enabled) { 
+        var reg = new RegistryKeyValue
+        {
+            KeyPath = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run",
+            ValueName = "DesktopSwitcher",
+            ValueKind = RegistryValueKind.String,
+            Value = Environment.ProcessPath
+        };
+        if (enabled)
+        {
+            RegistryManager.SetKeyValue(reg);
+        } else
+        {
+            RegistryManager.DeleteKeyValue(reg.KeyPath, reg.ValueName);
+        }
+    }
+
     public void LoadConfig()
     {
         try
@@ -58,6 +75,7 @@ public class MainViewModel : ViewModelBase
             var configText = File.ReadAllText(configPath);
             Config = Toml.ToModel<Config>(configText);
             Config.Path = configPath;
+            SetRunAtStartup(Config.RunAtStartup);
         }
         catch (Exception ex)
         {

@@ -1,4 +1,6 @@
-﻿# Don't remove default desktop
+﻿run_at_startup = true
+
+# Don't remove default desktop
 [[desktop_folder]]
 name = "Default"
 path = '%USERPROFILE%\Desktop'
