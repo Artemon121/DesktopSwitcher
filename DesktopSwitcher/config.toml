@@ -1,0 +1,16 @@
+﻿# Don't remove default desktop
+[[desktop_folder]]
+name = "Default"
+path = '%USERPROFILE%\Desktop'
+
+# Examples:
+
+# [[desktop_folder]]
+# name = "My Desktop 1"
+# path = '%USERPROFILE%\Desktops\MyDesktop1'
+
+# [[desktop_folder]]
+# name = "Any folder can be a desktop!"
+# path = 'C:\'
+
+# Add as many as you wish

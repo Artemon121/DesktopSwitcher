@@ -1,0 +1,38 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:DesktopSwitcher.ViewModels"
+             x:Class="DesktopSwitcher.App"
+             x:DataType="vm:MainViewModel"
+             RequestedThemeVariant="Default">
+             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+
+  <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="/Assets/desktop.ico"
+                ToolTipText="Desktop Switcher">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem Header="Desktops">
+              <NativeMenu>
+                <!-- Desktop Folders Here -->
+              </NativeMenu>
+            </NativeMenuItem>
+            <NativeMenuItem Header="Config">
+              <NativeMenu>
+                <NativeMenuItem Header="Reload" Command="{Binding ReloadConfig}" />
+                <NativeMenuItem Header="Edit..." Command="{Binding OpenConfigFile}" />
+              </NativeMenu>
+            </NativeMenuItem>
+            <NativeMenuItem Header="Exit" Command="{Binding Exit}" />
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+</Application>
