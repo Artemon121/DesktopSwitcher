@@ -156,6 +156,12 @@ public class MainViewModel : ViewModelBase
 
     public void SwitchDesktop(DesktopFolder folder)
     {
+        // Create desktop folder if it doesn't exist
+        if (!Directory.Exists(folder.Path))
+        {
+            Directory.CreateDirectory(folder.Path);
+        }
+
         // Refresh explorer so it stores icon layout data to the registry
         ExplorerUtils.Refresh();
         Thread.Sleep(100);
