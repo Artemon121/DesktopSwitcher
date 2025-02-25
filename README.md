@@ -25,11 +25,11 @@ run_at_startup = true
 
 [[desktop_folder]]
 name = "Work"
-path = "C:\Users\YourUsername\Desktops\Work"
+path = 'C:\Users\YourUsername\Desktops\Work'
 
 [[desktop_folder]]
 name = "Personal"
-path = "C:\Users\YourUsername\Desktops\Personal"
+path = 'C:\Users\YourUsername\Desktops\Personal'
 ```
 
 ### Configuration Options
